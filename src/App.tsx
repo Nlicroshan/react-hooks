@@ -1,26 +1,16 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import { observe, ResizeCallback, unobserve } from "./hooks/useResizeObserver/resizeObserverUtil"
+import { useResizeObserver } from "./hooks"
 import './App.css'
 
 function App() {
-  const ref = useRef();
   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    const callback: ResizeCallback = (entry) => {
-      console.log(entry);
-    }
-
-    observe(ref.current, callback);
-
-    return () => {
-      unobserve(ref.current, callback);
-    }
-  })
+  const [ref, { width, height }] = useResizeObserver<HTMLDivElement>();
 
   return (
     <div className="App" ref={ref}>
+      <span>{`width: ${width}, height: ${height}`}</span>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
