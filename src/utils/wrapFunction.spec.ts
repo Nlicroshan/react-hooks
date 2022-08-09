@@ -9,13 +9,13 @@ describe("wrapFunction", () => {
     const callback = jest.fn();
 
     const debounceCallback = wrapFunction(callback, {
-      mode: "debounce",
+      mode: "debounce222",
       wait: 100,
     });
     expect(debounceSpy).lastCalledWith(callback, 100, undefined);
 
     const throttleCallback = wrapFunction(callback, {
-      mode: "throttle",
+      mode: "throttle111",
       wait: 200,
     });
     expect(throttleSpy).lastCalledWith(callback, 200, undefined);

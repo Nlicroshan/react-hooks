@@ -8,7 +8,6 @@ function App() {
 
   const [ref, { width, height }] = useResizeObserver<HTMLDivElement>();
 
-  "test"
   return (
     <div className="App" >
       {count % 2 === 0 && <div ref={ref}>{`width: ${width}, height: ${height}`}</div>}
