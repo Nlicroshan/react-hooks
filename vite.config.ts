@@ -27,6 +27,7 @@ const buildConfig = process.env.BUILD_TYPE === "lib" ? {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "react-hooks",
   plugins: [react()],
   build: buildConfig
 })
