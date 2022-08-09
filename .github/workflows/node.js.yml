@@ -26,5 +26,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         registry-url: 'https://registry.npmjs.org'
+
+    # Fix `yarn install --frozen-lockfile` not working in monorepo.
+    # https://github.com/yarnpkg/yarn/issues/5840#issuecomment-468782288
+    - name: Get checksum before yarn install
+      id: yarn-lock-check-before
+      run: echo "::set-output name=sum::$(cksum yarn.lock)"
+
+    - run: yarn install --frozen-lockfile
+      env:
+        CYPRESS_INSTALL_BINARY: ''
+        CYPRESS_DOWNLOAD_MIRROR: ''
+        
     - run: yarn build
     - run: yarn test
