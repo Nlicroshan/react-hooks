@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import { useResizeObserver } from "./hooks"
 import './App.css'
@@ -9,13 +9,13 @@ function App() {
   const [ref, { width, height }] = useResizeObserver<HTMLDivElement>();
 
   return (
-    <div className="App" ref={ref}>
-      <span>{`width: ${width}, height: ${height}`}</span>
+    <div className="App" >
+      {count % 2 === 0 && <div ref={ref}>{`width: ${width}, height: ${height}`}</div>}
       <div>
-        <a href="https://vitejs.dev" target="_blank">
+        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
         </a>
-        <a href="https://reactjs.org" target="_blank">
+        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>

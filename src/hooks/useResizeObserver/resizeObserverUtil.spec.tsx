@@ -15,7 +15,6 @@ jest.mock("resize-observer-polyfill", () => {
 
     return {
       observe: jest.fn().mockImplementation((element: Element) => {
-        console.log(element);
         elementSet.add(element);
       }),
       unobserve: jest.fn().mockImplementation((element: Element) => {
