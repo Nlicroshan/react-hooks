@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App" >
-      {count % 2 === 0 && <div ref={ref}>{`width: ${width}, height: ${height}`}</div>}
+      <div ref={ref}>{`width: ${width}, height: ${height}`}</div>
       <div>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
