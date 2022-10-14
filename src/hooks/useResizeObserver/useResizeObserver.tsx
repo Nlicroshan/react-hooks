@@ -13,7 +13,7 @@ interface ElementSize {
   height: number;
 }
 
-export interface ResizeObserveProps<T> {
+export interface ResizeObserveProps<T extends Element = Element> {
   targetRef?: RefObject<T>;
   onResize?: (size: ElementSize) => void;
   heightTriggerUpdate?: boolean;
@@ -21,7 +21,7 @@ export interface ResizeObserveProps<T> {
   triggerOptions?: WrapOptions;
 }
 
-export function useResizeObserver<T extends Element>(
+export function useResizeObserver<T extends Element = Element>(
   props?: ResizeObserveProps<T>
 ): [RefObject<T>, ElementSize] {
   const {
